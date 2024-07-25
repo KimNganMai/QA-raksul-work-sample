@@ -1,0 +1,16 @@
+{
+  "base_url": "https://raksul.github.io/recruit-qa-engineer-work-sample/",
+  "case": {
+    "TC1": {
+        "input_data": {
+          "email": "nganmai@mailsac.com",
+          "firstName": "Ngan",
+          "lastName": "Mai",
+          "servicesOfInterest": "Printing; Logistics",
+          "typeOfAssociation": "Reseller",
+          "explanation": "NaN"
+        }
+    }
+  }
+}
+  
