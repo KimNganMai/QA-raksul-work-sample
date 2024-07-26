@@ -25,29 +25,36 @@ export class Form {
     /**
      * Select "Where did you hear about us?" drop-down
      * Note: Function not ready
-     * @param infoSource 
+     * @param infoSource: one of list "Search engines" | "Recommended by friend" | "Social media" | "Email marketing" | "Other".
      */
     async selectInfoSource(infoSource: string) {
-        const field = `//span[@class="ant-select-arrow"]`;
-        await this.page.locator(field).scrollIntoViewIfNeeded();
-        await this.page.locator(field).click();
-        // Can not click, and I don't know why.
-
-        // await this.page.addInitScript(() => {
-        //     document.addEventListener('mousemove', event => {
-        //       var bullet = document.getElementsByClassName("editor-bullet")[0] as HTMLElement
-        //       bullet.dataset.mousePosX = String(event.pageX);
-        //       bullet.dataset.mousePosY = String(event.pageY);
-        //     })
-        //   })
-
-        // const [mousePosX, mousePosY] = await this.page.evaluate(() => {
-        //     let bullet = document.getElementsByClassName("editor-bullet")[0] as HTMLElement
-        //     return [Number(bullet.dataset.mousePosX), Number(bullet.dataset.mousePosY)]
-        // });
-
-        // await this.page.mouse.move(mousePosX + 50, mousePosY);
-        // await this.page.waitForTimeout(10000);
+        const firstNameLocator = this.page.locator(`//*[@id="form_item_firstName"]`);
+        await firstNameLocator.click();
+        await this.page.keyboard.press('Tab');
+        
+        //Try with happy case when tab on infoSource field in the 1st time. The function will be improved for flexible after
+        let timeToPressDown: number;
+        switch (infoSource) {
+            case "Search engines":
+                timeToPressDown = 5;
+                break;
+            case "Recommended by friend":
+                timeToPressDown = 1;
+                break;
+            case "Social media":
+                timeToPressDown = 2;
+                break;
+            case "Email marketing":
+                timeToPressDown = 3;
+                break;
+            case "Other":
+                timeToPressDown = 4;
+                break;
+        }
+        for (let i = 0; i < timeToPressDown; i++) {
+            await this.page.keyboard.down();
+        }
+        await this.page.keyboard.press('Enter');
     }
 
     /**
