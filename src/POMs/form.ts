@@ -24,36 +24,36 @@ export class Form {
 
     /**
      * Select "Where did you hear about us?" drop-down
-     * Note: Function not ready
      * @param infoSource: one of list "Search engines" | "Recommended by friend" | "Social media" | "Email marketing" | "Other".
      */
     async selectInfoSource(infoSource: string) {
         const firstNameLocator = this.page.locator(`//*[@id="form_item_firstName"]`);
         await firstNameLocator.click();
         await this.page.keyboard.press('Tab');
-        
-        //Try with happy case when tab on infoSource field in the 1st time. The function will be improved for flexible after
+
+        //Define the default index for each info Source option
+        const infoSourceOptions = ["Search engines", "Recommended by friend", "Social media", "Email marketing", "Other"];
+
+        //Get index of expected option source
+        const infoSourceIndex = infoSourceOptions.indexOf(infoSource);
+
+        //Get index of current option source
+        const infoSourceFieldLocator = this.page.locator(`//input[@id="form_item_infoSource"]`);
+        const activedescendantValue = await infoSourceFieldLocator.getAttribute('aria-activedescendant'); //Format: "form_item_infoSource_list_${index}"
+        const currentInfoSourceIndex = Number(activedescendantValue.split("_", last()));
+
+        //Calculate time to press up or down to choose the infoSource
         let timeToPressDown: number;
-        switch (infoSource) {
-            case "Search engines":
-                timeToPressDown = 5;
-                break;
-            case "Recommended by friend":
-                timeToPressDown = 1;
-                break;
-            case "Social media":
-                timeToPressDown = 2;
-                break;
-            case "Email marketing":
-                timeToPressDown = 3;
-                break;
-            case "Other":
-                timeToPressDown = 4;
-                break;
-        }
-        for (let i = 0; i < timeToPressDown; i++) {
-            await this.page.keyboard.down();
-        }
+        timeToPressDown = currentInfoSourceIndex - infoSourceIndex;
+        if (timeToPressDown < 0) {
+            for (let i = 0; i < Math.abs(timeToPressDown); i++) {
+                await this.page.keyboard.down();
+            }
+        } else if (timeToPressDown > 0) {
+            for (let i = 0; i < timeToPressDown; i++) {
+                await this.page.keyboard.up();
+            }
+        } 
         await this.page.keyboard.press('Enter');
     }
 
