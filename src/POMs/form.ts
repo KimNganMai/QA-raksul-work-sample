@@ -1,5 +1,11 @@
 import { Page } from "@playwright/test";
 
+export enum MessageContent {
+    SUBMIT_SUCCESS = "Your inquiry has been submitted successfully!",
+    EMAIL_REQUIRED = "'email' is required",
+    EMAIL_VALID = "'email' is not a valid email"
+}
+
 export class Form {
     page: Page;
     constructor(page: Page) {
@@ -112,7 +118,7 @@ export class Form {
      * @param message 
      * @returns 
      */
-    async isMessageVisible(message: string): Promise<boolean> {
+    async isMessageVisible(message: MessageContent): Promise<boolean> {
         const xpath = `//div[text()="${message}"]`;
         return await this.page.locator(xpath).isVisible();
     }

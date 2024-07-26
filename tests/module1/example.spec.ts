@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { Form } from '../../src/POMs/form';
+import { Form, MessageContent } from '../../src/POMs/form';
 
 import fs from 'fs';
 import path from 'path';
@@ -19,6 +19,6 @@ test('TC1: Submit form successfully with all valid information', async ({ page }
   
   await test.step("Click Submit button then verify",  async () => {
     await page.locator(`//button[@type="submit"]`).click();
-    expect(await form.isMessageVisible("Your inquiry has been submitted successfully!")).toBeTruthy();
+    expect(await form.isMessageVisible(MessageContent.SUBMIT_SUCCESS)).toBeTruthy();
   });
 });
