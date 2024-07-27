@@ -1,8 +1,11 @@
 ## Automation:
-### Structor:
-- `tests\module1\example.spec.ts` - Module1's scenarios.
+
+### Project Structure:
+- `tests\module1\example.spec.ts` - Scenarios for Module1.
 - `tests\module1\example.json` - Configuration for Module1 scenarios.
 - `src\POMs\form.ts` - Functions related to forms.
+- `playwright.config.ts` - Playwright project configuration.
+- `test-results` - Directory to save report files from the last test run, including integrated trace reports.
 
 ### Running the Project
 To clone and run the project locally:
