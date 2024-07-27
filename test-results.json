@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "D:\\Nganmai\\GetStart\\playwright.config.ts",
-    "rootDir": "D:/Nganmai/GetStart/tests",
+    "configFile": "d:\\Nganmai\\GetStart\\playwright.config.ts",
+    "rootDir": "d:/Nganmai/GetStart/tests",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -40,13 +40,13 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "D:/Nganmai/GetStart/test-results",
+        "outputDir": "d:/Nganmai/GetStart/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {},
         "id": "chromium",
         "name": "chromium",
-        "testDir": "D:/Nganmai/GetStart/tests",
+        "testDir": "d:/Nganmai/GetStart/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -54,13 +54,13 @@
         "timeout": 30000
       },
       {
-        "outputDir": "D:/Nganmai/GetStart/test-results",
+        "outputDir": "d:/Nganmai/GetStart/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {},
         "id": "Mobile Safari",
         "name": "Mobile Safari",
-        "testDir": "D:/Nganmai/GetStart/tests",
+        "testDir": "d:/Nganmai/GetStart/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -71,7 +71,7 @@
     "shard": null,
     "updateSnapshots": "missing",
     "version": "1.45.3",
-    "workers": 1,
+    "workers": 6,
     "webServer": null
   },
   "suites": [
@@ -87,28 +87,38 @@
           "tags": [],
           "tests": [
             {
-              "timeout": 0,
+              "timeout": 30000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "chromium",
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 2,
                   "status": "passed",
-                  "duration": 36913,
+                  "duration": 23535,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
                   "steps": [
                     {
-                      "title": "Open form",
-                      "duration": 36610
+                      "title": "Open form then input data",
+                      "duration": 22943
+                    },
+                    {
+                      "title": "Click Submit button then verify",
+                      "duration": 158
                     }
                   ],
-                  "startTime": "2024-07-25T23:33:00.209Z",
-                  "attachments": []
+                  "startTime": "2024-07-27T09:41:56.318Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "d:\\Nganmai\\GetStart\\test-results\\module1-example-TC1-Submit-3b5a4--with-all-valid-information-chromium\\trace.zip"
+                    }
+                  ]
                 }
               ],
               "status": "expected"
@@ -116,7 +126,7 @@
           ],
           "id": "118ca4601c42875dc528-c9a0791c08884b41e9fc",
           "file": "module1/example.spec.ts",
-          "line": 12,
+          "line": 11,
           "column": 5
         }
       ]
@@ -124,8 +134,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-07-25T23:32:57.689Z",
-    "duration": 39816.513,
+    "startTime": "2024-07-27T09:41:54.422Z",
+    "duration": 26046.381000000983,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

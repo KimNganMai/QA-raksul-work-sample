@@ -40,18 +40,21 @@ export class Form {
         //Get index of current option source
         const infoSourceFieldLocator = this.page.locator(`//input[@id="form_item_infoSource"]`);
         const activedescendantValue = await infoSourceFieldLocator.getAttribute('aria-activedescendant'); //Format: "form_item_infoSource_list_${index}"
-        const currentInfoSourceIndex = Number(activedescendantValue.split("_", last()));
+        let currentInfoSourceIndex = 0;
+        if (activedescendantValue != null) {
+            currentInfoSourceIndex = Number(activedescendantValue.split("_")[4]); 
+        }
 
         //Calculate time to press up or down to choose the infoSource
         let timeToPressDown: number;
         timeToPressDown = currentInfoSourceIndex - infoSourceIndex;
         if (timeToPressDown < 0) {
             for (let i = 0; i < Math.abs(timeToPressDown); i++) {
-                await this.page.keyboard.down();
+                await this.page.keyboard.press("ArrowDown");
             }
         } else if (timeToPressDown > 0) {
             for (let i = 0; i < timeToPressDown; i++) {
-                await this.page.keyboard.up();
+                await this.page.keyboard.press("ArrowUp");
             }
         } 
         await this.page.keyboard.press('Enter');
