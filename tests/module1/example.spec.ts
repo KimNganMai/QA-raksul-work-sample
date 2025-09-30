@@ -21,4 +21,6 @@ test('TC1: Submit form successfully with all valid information', async ({ page }
     await page.locator(`//button[@type="submit"]`).click();
     expect(await form.isMessageVisible(MessageContent.SUBMIT_SUCCESS)).toBeTruthy();
   });
+  console.log();
+  console.log();
 });
