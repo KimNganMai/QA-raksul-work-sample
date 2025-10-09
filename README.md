@@ -34,4 +34,8 @@ Make sure Node.js and npm are installed on your machine before proceeding. Adjus
 ## Manual:
 - Test design saved in `tests\test-design`.
 
+<<<<<<< HEAD
 ## Buổi 1: Git
+=======
+Edit new brach
+>>>>>>> 0849237a1aaad94db0696486b223f18e36d88a46
