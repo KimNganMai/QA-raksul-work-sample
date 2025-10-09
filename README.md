@@ -35,3 +35,7 @@ Make sure Node.js and npm are installed on your machine before proceeding. Adjus
 - Test design saved in `tests\test-design`.
 
 ## Buổi 1: Git
+## Buổi 2: Git
+Cái gì đó
+....
+aa
