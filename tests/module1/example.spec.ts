@@ -23,4 +23,5 @@ test('TC1: Submit form successfully with all valid information', async ({ page }
   });
   console.log();
   console.log();
+  console.log();
 });
