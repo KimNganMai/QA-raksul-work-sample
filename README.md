@@ -35,3 +35,22 @@ Make sure Node.js and npm are installed on your machine before proceeding. Adjus
 - Test design saved in `tests\test-design`.
 
 ## Buổi 1: Git
+Các bước thường dùng:
+```
+// clone repo
+git clone <link repo>
+
+// tạo branch mới
+git checkout -b <new-branch-name>
+
+// kiểm tra status của modified files
+git status
+
+// add các modified files:
+git add .
+
+// commit change
+git commit -m “<commit message>”
+
+// push code
+```
