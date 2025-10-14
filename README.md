@@ -52,5 +52,7 @@ git add .
 // commit change
 git commit -m “<commit message>”
 
-// push code
+// push code lần đầu do chưa tạo remote branch trên repo gốc
+//To push the current branch and set the remote as upstream
+git push --set-upstream origin <new-branch-name>
 ```
